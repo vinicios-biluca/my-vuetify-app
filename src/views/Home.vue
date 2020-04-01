@@ -1,16 +1,12 @@
 <template>
-  <v-app>
-    <NavigationBar />
-  </v-app>
+  <div class="home">
+    <h1>This is an Home page</h1>
+  </div>
 </template>
 
 <script>
-import NavigationBar from "@/components/NavigationBar";
-
 export default {
-  name: "Home",
-  components: {
-    NavigationBar
-  }
+  name: "Home"
 };
 </script>
+

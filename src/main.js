@@ -6,12 +6,10 @@ import vuetify from './plugins/vuetify';
 
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
 
-//Commons Imports
+//Importa na Instância do Vue o Arquivo colors.js
 import colors from '@/commons/colors';
 
 Vue.config.productionTip = false
-
-
 
 new Vue({
   router,

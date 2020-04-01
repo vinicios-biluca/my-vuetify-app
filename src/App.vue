@@ -1,15 +1,18 @@
 <template>
-  <v-app>
-    <v-content>
-      <router-view/>
-    </v-content>
-    
-  </v-app>
+  <div>
+    <v-app class="grey lighten-4">
+      <v-content>
+        <router-view/>
+      </v-content>
+    </v-app>
+  </div>
 </template>
 
 <script>
 
+
 export default {
   name: "App",
+  
 };
 </script>
