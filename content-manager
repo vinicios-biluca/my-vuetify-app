@@ -1,4 +1,7 @@
-hello-world:<Olá, meu nome é Gerenciador de Conteúdo>
-button-label-ok:<OK>
-button-label-no:<Não>
-button-label-yes:<Sim>
+{
+hello-world: "Olá Mundo!",
+button-label-ok: "Okay",
+button-label-cancel: "Cancelar",
+button-label-yes: "Sim",
+button-label-no: "Não",
+}
