@@ -1,5 +1,10 @@
 <template>
   <nav>
+    <v-snackbar :color="$secondaryColor" v-model="snackbar">
+      <span>Projeto Salvo com Sucesso!</span>
+      <v-btn dark small @click="ctrlSnackbar">Close</v-btn>
+    </v-snackbar>
+
     <v-toolbar dark>
       <v-btn small v-on:click="showNavigationDrawer">
         <v-icon>menu</v-icon>
@@ -9,12 +14,11 @@
         <v-img src="@/assets/wsi-logo-light.png" width="100"></v-img>
       </v-container>
       <v-spacer />
-      <v-btn small v-bind:color="$primaryColor">
-        <v-icon>exit_to_app</v-icon>
-      </v-btn>
+
+      <Dialog @projectAdded="ctrlSnackbar" />
     </v-toolbar>
 
-    <v-navigation-drawer :mini-variant="drawer" dark>
+    <v-navigation-drawer app temporary v-model="drawer" dark>
       <v-list>
         <v-list-item v-for="item in items" :key="item.title" router :to="item.route" link>
           <v-list-item-icon>
@@ -30,15 +34,20 @@
 </template>
 
 <script>
+import Dialog from "@/components/Dialog";
+
 export default {
   name: "NavigationBar",
+  components: {
+    Dialog
+  },
   data() {
     return {
-      drawer: true,
+      snackbar: false,
+      drawer: false,
       items: [
-        { title: "Início", icon: "home" , route: '/home'},
-        { title: "Sobre", icon: "help" , route: '/about'},
-        { title: "Equipe", icon: "people" , route: '/team'}
+        { title: "Projetos", icon: "folder", route: "/home" },
+        { title: "Equipe", icon: "people", route: "/team" }
       ],
       right: null
     };
@@ -46,6 +55,10 @@ export default {
   methods: {
     showNavigationDrawer() {
       this.drawer = !this.drawer;
+    },
+    ctrlSnackbar() {
+      this.snackbar = !this.snackbar;
+      this.$emit("projectAdded");
     }
   }
 };
